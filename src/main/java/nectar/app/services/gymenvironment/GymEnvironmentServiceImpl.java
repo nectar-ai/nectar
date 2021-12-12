@@ -30,9 +30,12 @@ public class GymEnvironmentServiceImpl implements GymEnvironmentService {
 
         if(Optional.ofNullable(originalFileName).isPresent()){
             String environmentName = 
-                originalFileName.substring(0, originalFileName.indexOf(".py")) + "_" + time;
-            String newFileName = environmentName + ".py";
+                String.format("%s_%s", 
+                    originalFileName.substring(0, originalFileName.indexOf(".py")), 
+                    time);
+            String newFileName = String.format("%s.py", environmentName);
             environment.setEnvironmentName(environmentName);
+
             try {
                 Path path = Paths.get(String.format("src/main/resources/%s", newFileName));
                 Files.write(path, environmentFile.getBytes());
@@ -40,7 +43,6 @@ public class GymEnvironmentServiceImpl implements GymEnvironmentService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            
         }
 
         return this.environmentRepository.save(environment);
@@ -48,7 +50,8 @@ public class GymEnvironmentServiceImpl implements GymEnvironmentService {
 
     @Override
     public GymEnvironment findEnvironmentById(String environmentId) {
-        Optional<GymEnvironment> optionalEnvironment = this.environmentRepository.findById(environmentId);
+        Optional<GymEnvironment> optionalEnvironment = 
+            this.environmentRepository.findById(environmentId);
         if (optionalEnvironment.isPresent()) {
             return optionalEnvironment.get();
         }

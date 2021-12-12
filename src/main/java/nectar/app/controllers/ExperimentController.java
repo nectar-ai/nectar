@@ -26,7 +26,8 @@ public class ExperimentController {
     }
 
     @PostMapping(value = {"/"})
-    public Experiment executeExperiment(@RequestBody Experiment experiment, @RequestParam boolean rerun) {
+    public Experiment executeExperiment(@RequestBody Experiment experiment,
+        @RequestParam boolean rerun) {
         return this.experimentService.executeExperiment(experiment, rerun);
     }
 }

@@ -6,6 +6,8 @@
 Welcome to nectar's documentation!
 ==================================
 
+Nectar has its documentation hosted on Read the Docs.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:

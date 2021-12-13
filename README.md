@@ -1,6 +1,6 @@
 <img src='https://github.com/nectar-ai/nectar/raw/main/docs/source/images/nectar_header_logo.png' height='200'>
 
-# Simplified reinforcement learning using Ray
+# Reinforcement Learning, Simplified
 [![Documentation Status](https://readthedocs.org/projects/nectarai/badge/?version=latest)](https://nectarai.readthedocs.io/en/latest/?badge=latest)
 [![CircleCI](https://circleci.com/gh/nectar-ai/nectar/tree/main.svg?style=shield)](https://circleci.com/gh/nectar-ai/nectar/tree/main)
 

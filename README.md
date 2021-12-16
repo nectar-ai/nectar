@@ -9,7 +9,7 @@
 Nectar is an open source reinforcement learning platform built using Ray's RLlib and Tune that simplifies the setup for hyperparameter optimization and model training against OpenAI Gym environments.
 
 ## Contributing
-We happily welcome contributions to Nectar. Please read our [contribution guidelines](https://github.com/nectar-ai/nectar/raw/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/nectar-ai/nectar/raw/main/CODE_OF_CONDUCT.md) to learn more about contributing to Nectar.
+We happily welcome contributions to Nectar. Please read our [contribution guidelines](https://github.com/nectar-ai/nectar/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/nectar-ai/nectar/blob/main/CODE_OF_CONDUCT.md) to learn more about contributing to Nectar.
 
 ## Authors
 * **Imran Charania** - *Initial work* - [imrancharania](https://github.com/imrancharania)

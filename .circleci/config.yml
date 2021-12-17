@@ -19,8 +19,7 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout:
-          path: ~/nectar
-      - run: cd nectar
+          path: ~/nectar/nectar
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build

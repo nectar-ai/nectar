@@ -69,6 +69,8 @@ def train_ppo(environment_name, environment_path, iterations, gamma, lr):
 
 def execute_experiments(ch, method, properties, body):
 
+    ch.basic_ack(delivery_tag=method.delivery_tag)
+    
     message = json.loads(body.decode())
 
     environment_name = message['gymEnvironment']['environmentName']
@@ -81,7 +83,6 @@ def execute_experiments(ch, method, properties, body):
 
     train_ppo(environment_name, environment_path, iterations, gamma, lr)
     print(" [x] Done")
-    ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
 channel.basic_consume(

@@ -18,6 +18,10 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
+      - run:
+      # Change to the nectar directory
+        name: Change Directory
+        command: cd nectar
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build

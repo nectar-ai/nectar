@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; nectar 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Nectar Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> nectar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#java">Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apache-maven">Apache Maven</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mongodb-community-edition">MongoDB Community Edition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rabbitmq">RabbitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker-dependencies">Worker Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nectar-api-dependencies">Nectar API Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#launching">Launching</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nectar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting-started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
+<p>Nectar has two main components: the Nectar API and the Workers. They communicate with each other using RabbitMQ. Additionally, the Nectar API uses MongoDB to store GymEnvironment and Experiment objects. Each of these need to be installed as well as the dependencies for each component.</p>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline"></a></h3>
+<p>First, you will need to download and install Python for running the workers. Some of the dependencies do not have support for Python 3.10 yet so it is strongly advised that you install Python 3.9 instead. Installation instructions for Python 3.9 can be found <a class="reference external" href="https://docs.python.org/3.9/using/index.html">here.</a></p>
+</section>
+<section id="java">
+<h3>Java<a class="headerlink" href="#java" title="Permalink to this headline"></a></h3>
+<p>Next, you will need to download and install Java 17. Java 17 downloads can be found <a class="reference external" href="https://www.oracle.com/java/technologies/downloads/">here.</a></p>
+</section>
+<section id="apache-maven">
+<h3>Apache Maven<a class="headerlink" href="#apache-maven" title="Permalink to this headline"></a></h3>
+<p>You will also need to download and install Apache Maven. Instructions can be found <a class="reference external" href="https://maven.apache.org/install.html">here.</a></p>
+</section>
+<section id="mongodb-community-edition">
+<h3>MongoDB Community Edition<a class="headerlink" href="#mongodb-community-edition" title="Permalink to this headline"></a></h3>
+<p>Then, you will need to install and run MongoDB Community Edition. The instructions can be found <a class="reference external" href="https://docs.mongodb.com/manual/administration/install-community/">here.</a></p>
+</section>
+<section id="rabbitmq">
+<h3>RabbitMQ<a class="headerlink" href="#rabbitmq" title="Permalink to this headline"></a></h3>
+<p>Next, you should install and run RabbitMQ. The instructions can be found <a class="reference external" href="https://www.rabbitmq.com/download.html">here.</a></p>
+</section>
+<section id="worker-dependencies">
+<h3>Worker Dependencies<a class="headerlink" href="#worker-dependencies" title="Permalink to this headline"></a></h3>
+<p>Now you can install the dependencies for the workers by navigating to the <code class="docutils literal notranslate"><span class="pre">workers</span></code> folder in your command line and running: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
+</section>
+<section id="nectar-api-dependencies">
+<h3>Nectar API Dependencies<a class="headerlink" href="#nectar-api-dependencies" title="Permalink to this headline"></a></h3>
+<p>Finally, you need to install the Maven dependencies for the Nectar API by navigating to the <code class="docutils literal notranslate"><span class="pre">nectar</span></code> folder in your command line and running: <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span></code></p>
+</section>
+</section>
+<section id="launching">
+<h2>Launching<a class="headerlink" href="#launching" title="Permalink to this headline"></a></h2>
+<p>Before attempting to launch the Nectar API or Workers, ensure that both MongoDB and RabbitMQ are running. Then you can launch the workers in one shell with: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">ppo_worker.py</span></code></p>
+<p>In another shell, you can launch the Nectar API with: <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">spring-boot:run</span></code></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Nectar Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Nectar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

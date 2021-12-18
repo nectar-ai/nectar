@@ -1,5 +1,4 @@
-pika==1.2.0
-ray==1.8.0
-workers==0.0.1
-ray[tune]==1.8.0
-ray[rllib]==1.8.0
+pika
+ray
+ray[tune]
+ray[rllib]

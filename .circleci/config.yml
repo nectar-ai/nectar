@@ -33,6 +33,7 @@ jobs:
       - image: cimg/python:3.10
     steps:
       - checkout
+      - run: cd workers && pip install -r requirements.txt
       - run: cd workers && python ppo_worker.py
 
 # Invoke jobs via workflows

@@ -5,3 +5,5 @@ Nectar is an open source reinforcement learning platform built using Ray's RLlib
 
 .. toctree::
    :maxdepth: 1
+
+   getting-started

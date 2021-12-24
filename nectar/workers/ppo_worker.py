@@ -7,10 +7,10 @@ from ray.tune import register_env, Callback
 
 import importlib.util
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
-channel = connection.channel()
-channel.queue_declare(queue='experiment.queue')
-channel.queue_declare(queue='experiment.results.queue')
+# connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+# channel = connection.channel()
+# channel.queue_declare(queue='experiment.queue')
+# channel.queue_declare(queue='experiment.results.queue')
 
 class PPOCallback(Callback):
     def on_trial_result(self, iteration, trials, trial, result, **info):
@@ -35,11 +35,11 @@ class PPOCallback(Callback):
             }
         })
 
-        channel.basic_publish(
-            exchange='',
-            routing_key='experiment.results.queue',
-            body=data
-        )
+        # channel.basic_publish(
+        #     exchange='',
+        #     routing_key='experiment.results.queue',
+        #     body=data
+        # )
 
 def train_ppo(environment_name, environment_path, iterations, gamma, lr):
     
@@ -67,31 +67,31 @@ def train_ppo(environment_name, environment_path, iterations, gamma, lr):
 
     ray.shutdown()
 
-def execute_experiments(ch, method, properties, body):
+# def execute_experiments(ch, method, properties, body):
 
-    ch.basic_ack(delivery_tag=method.delivery_tag)
+#     ch.basic_ack(delivery_tag=method.delivery_tag)
     
-    message = json.loads(body.decode())
+#     message = json.loads(body.decode())
 
-    environment_name = message['gymEnvironment']['environmentName']
-    environment_path = message['gymEnvironment']['environmentPath']
-    iterations = message['iterations']
-    gamma = message['gamma']
-    lr = message['lr']
+#     environment_name = message['gymEnvironment']['environmentName']
+#     environment_path = message['gymEnvironment']['environmentPath']
+#     iterations = message['iterations']
+#     gamma = message['gamma']
+#     lr = message['lr']
 
-    print(" [x] Received %r" % body.decode())
+#     print(" [x] Received %r" % body.decode())
 
-    train_ppo(environment_name, environment_path, iterations, gamma, lr)
-    print(" [x] Done")
+#     train_ppo(environment_name, environment_path, iterations, gamma, lr)
+#     print(" [x] Done")
 
 
-channel.basic_consume(
-    queue='experiment.queue',
-    on_message_callback=execute_experiments
-)
+# channel.basic_consume(
+#     queue='experiment.queue',
+#     on_message_callback=execute_experiments
+# )
 
-print(' [*] Waiting for messages. To exit press CTRL+C')
-channel.start_consuming()
+# print(' [*] Waiting for messages. To exit press CTRL+C')
+# channel.start_consuming()
 
 
 

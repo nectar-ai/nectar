@@ -1,4 +1,6 @@
 import textwrap
+import logging
+import waitress
 
 from flask import Flask, Response
 
@@ -17,3 +19,8 @@ def serve():
     """
     )
     return Response(text, mimetype="text/plain")
+
+def _run_server():
+    logger = logging.getLogger('waitress')
+    logger.setLevel(logging.INFO)   
+    waitress.serve(app, host='127.0.0.1', port=5000)

@@ -40,6 +40,6 @@ def _run_server(host, port):
     :param None
     :return: None
     """
-    logger = logging.getLogger('waitress')
-    logger.setLevel(logging.INFO)   
+    logger = logging.getLogger("waitress")
+    logger.setLevel(logging.INFO)
     waitress.serve(app, host=host, port=port)

@@ -11,6 +11,22 @@ def cli():
 @cli.command()
 @click.argument("uri")
 @click.option(
+    "--algorithm",
+    "-a",
+    metavar="ALGORITHM",
+    prompt=True,
+    type=click.Choice([
+        "A2C",
+        "A3C",
+        "DDPG",
+        "DDPPO",
+        "DQN",
+        "PPO",
+        "SAC",
+        "TD3"
+    ], case_sensitive=False)
+)
+@click.option(
     "--iterations",
     "-i",
     metavar="ITERATIONS",
@@ -28,14 +44,18 @@ def cli():
     metavar="LEARNING_RATE",
     prompt=True
 )
-def run (uri, iterations, discount_factor, learning_rate):
+def run (uri, algorithm, iterations, discount_factor, learning_rate):
     """
     Run Nectar against an OpenAI Gym environment from the local URI
     using the specified number of iterations, discount factor, and
     learning rate.
     """
-    # TODO: Add argument for experiment config and implement service method
-    pass
+    click.echo(f"URI: {uri}\n"
+    f"Algorithm: {algorithm}\n"
+    f"Iterations: {iterations}\n"
+    f"Discount Factor: {discount_factor}\n"
+    f"Learning Rate: {learning_rate}\n"
+    )
 
 @cli.command()
 @cli_args.HOST
@@ -46,3 +66,6 @@ def server(host, port):
     The UI will be visible at http://localhost:5000 by default.
     """
     run_server(host, port)
+
+if __name__ == "__main__":
+    cli()

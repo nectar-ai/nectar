@@ -1,3 +1,6 @@
+"""
+Definitions of click options shared by several CLI commands.
+"""
 import click
 
 HOST = click.option(
@@ -9,9 +12,9 @@ HOST = click.option(
 )
 
 PORT = click.option(
-    "--port", 
-    "-p", 
+    "--port",
+    "-p",
     metavar="PORT",
-    default=5000, 
+    default=5000,
     help="The port to listen on (default: 5000)."
 )

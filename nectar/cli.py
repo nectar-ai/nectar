@@ -10,11 +10,29 @@ def cli():
 
 @cli.command()
 @click.argument("uri")
-def run (uri):
+@click.option(
+    "--iterations",
+    "-i",
+    metavar="ITERATIONS",
+    prompt=True
+)
+@click.option(
+    "--discount_factor",
+    "-d",
+    metavar="DISCOUNT_FACTOR",
+    prompt=True
+)
+@click.option(
+    "--learning_rate",
+    "-l",
+    metavar="LEARNING_RATE",
+    prompt=True
+)
+def run (uri, iterations, discount_factor, learning_rate):
     """
-    Run Nectar against an OpenAI Gym environment from the given URI.
-    For local runs, the run will block until it completes.
-    If running locally (the default), the URI must be a local path.
+    Run Nectar against an OpenAI Gym environment from the local URI
+    using the specified number of iterations, discount factor, and
+    learning rate.
     """
     # TODO: Add argument for experiment config and implement service method
     pass

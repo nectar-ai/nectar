@@ -11,6 +11,7 @@ HOST = click.option(
 PORT = click.option(
     "--port", 
     "-p", 
+    metavar="PORT",
     default=5000, 
     help="The port to listen on (default: 5000)."
 )

@@ -1,20 +1,21 @@
 import textwrap
 import logging
-import waitress
+import uvicorn
 
-from flask import Flask, Response
+from fastapi import FastAPI, Response, status
 
-app = Flask(__name__)
+app = FastAPI()
 
 # Provide a health check endpoint to ensure the application is responsive
-@app.route("/health")
-def health():
+@app.get("/health")
+def health(response: Response):
     """
     Provide a health check endpoint to ensure the application is responsive.
     """
-    return "OK", 200
+    response.status_code = status.HTTP_201_CREATED
+    return "OK"
 
-@app.route("/")
+@app.get("/")
 def serve():
     """
     Serve the index.html for the UI.
@@ -24,7 +25,7 @@ def serve():
     Unable to display Nectar UI - landing page (index.html) not found.
     """
     )
-    return Response(text, mimetype="text/plain")
+    return Response(content=text, media_type="text/plain")
 
 def run_server(host, port):
     """
@@ -42,4 +43,4 @@ def _run_server(host, port):
     """
     logger = logging.getLogger("waitress")
     logger.setLevel(logging.INFO)
-    waitress.serve(app, host=host, port=port)
+    uvicorn.run(app, host=host, port=port)

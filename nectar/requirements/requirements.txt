@@ -2,5 +2,6 @@ pika
 ray
 ray[tune]
 ray[rllib]
-flask
 click
+fastapi
+uvicorn

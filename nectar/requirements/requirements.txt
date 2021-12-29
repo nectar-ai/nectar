@@ -2,3 +2,7 @@ pika
 ray
 ray[tune]
 ray[rllib]
+click
+fastapi
+uvicorn
+typing

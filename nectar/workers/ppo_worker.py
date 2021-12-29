@@ -69,7 +69,7 @@ def train_ppo(environment_name, environment_path, iterations, gamma, lr):
 
     ray.shutdown()
 
-def execute_experiments(ch, method, body):
+def execute_experiments(ch, method, properties, body):
 
     ch.basic_ack(delivery_tag=method.delivery_tag)
 

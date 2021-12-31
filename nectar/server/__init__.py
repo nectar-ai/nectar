@@ -2,22 +2,10 @@ import textwrap
 import uvicorn
 
 from fastapi import FastAPI, Response, status
-from pydantic import BaseModel
-from typing import List
-
-from nectar.server import experiment
+from nectar.server.experiment_handler import execute_experiment_handler
+from nectar.models import Experiment
 
 app = FastAPI()
-
-class GymEnvironment(BaseModel):
-    environmentName: str
-    environmentPath: str
-
-class Experiment(BaseModel):
-    gymEnvironment: GymEnvironment
-    iterations: int
-    gamma: List[float]
-    lr: List[float]
 
 # Provide a health check endpoint to ensure the application is responsive
 @app.get("/health")
@@ -42,7 +30,7 @@ def serve():
 
 @app.post("/experiment/")
 def execute_experiment(experiment_obj: Experiment):
-    experiment.execute_experiment(experiment_obj)
+    execute_experiment_handler(experiment_obj)
     return "OK"
 
 def run_server(host, port):

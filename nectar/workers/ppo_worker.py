@@ -42,7 +42,7 @@ class PPOCallback(Callback):
         #     body=data
         # )
 
-def train_ppo(environment_name, environment_path, iterations, gamma, lr):
+def train_ppo(algorithms, environment_name, environment_path, iterations, gamma, lr):
 
     ray.init()
 
@@ -53,7 +53,7 @@ def train_ppo(environment_name, environment_path, iterations, gamma, lr):
 
     register_env(environment_name, module.Example_v0)
     tune.run(
-        ["PPO", "DQN"],
+        algorithms,
         stop = {
             "training_iteration": iterations,
         },
@@ -75,6 +75,7 @@ def execute_experiments(ch, method, properties, body):
 
     message = json.loads(body.decode())
 
+    algorithms = message["algorithms"]
     environment_name = message["gymEnvironment"]["environmentName"]
     environment_path = message["gymEnvironment"]["environmentPath"]
     iterations = message["iterations"]
@@ -83,7 +84,7 @@ def execute_experiments(ch, method, properties, body):
 
     print(f" [x] Received {body.decode()}")
 
-    train_ppo(environment_name, environment_path, iterations, gamma, lr)
+    train_ppo(algorithms, environment_name, environment_path, iterations, gamma, lr)
     print(" [x] Done")
 
 

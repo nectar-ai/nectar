@@ -6,3 +6,4 @@ click
 fastapi
 uvicorn
 typing
+pydantic
